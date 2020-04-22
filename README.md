@@ -8,4 +8,4 @@ LwIP Demo project for ST Discovery F769
 
 
 ### Ping static address 
-![Ping static](ping_static.jpg)
+![Ping static](Images/ping_static.jpg)
