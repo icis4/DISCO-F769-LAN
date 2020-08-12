@@ -85,7 +85,7 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle)
     __HAL_RCC_LTDC_CLK_ENABLE();
 
     /* LTDC interrupt Init */
-    HAL_NVIC_SetPriority(LTDC_IRQn, 5, 0);
+    HAL_NVIC_SetPriority(LTDC_IRQn, 7, 0);
     HAL_NVIC_EnableIRQ(LTDC_IRQn);
   /* USER CODE BEGIN LTDC_MspInit 1 */
 
@@ -110,7 +110,7 @@ void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef* ltdcHandle)
 
   /* USER CODE END LTDC_MspDeInit 1 */
   }
-} 
+}
 
 /* USER CODE BEGIN 1 */
 

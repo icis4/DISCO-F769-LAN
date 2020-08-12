@@ -132,10 +132,10 @@ void HAL_DSI_MspInit(DSI_HandleTypeDef* dsiHandle)
   /* USER CODE END DSI_MspInit 0 */
     /* DSI clock enable */
     __HAL_RCC_DSI_CLK_ENABLE();
-  
+
     __HAL_RCC_GPIOJ_CLK_ENABLE();
-    /**DSIHOST GPIO Configuration    
-    PJ2     ------> DSIHOST_TE 
+    /**DSIHOST GPIO Configuration
+    PJ2     ------> DSIHOST_TE
     */
     GPIO_InitStruct.Pin = DSIHOST_TE_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -145,7 +145,7 @@ void HAL_DSI_MspInit(DSI_HandleTypeDef* dsiHandle)
     HAL_GPIO_Init(DSIHOST_TE_GPIO_Port, &GPIO_InitStruct);
 
     /* DSI interrupt Init */
-    HAL_NVIC_SetPriority(DSI_IRQn, 5, 0);
+    HAL_NVIC_SetPriority(DSI_IRQn, 7, 0);
     HAL_NVIC_EnableIRQ(DSI_IRQn);
   /* USER CODE BEGIN DSI_MspInit 1 */
 
@@ -163,9 +163,9 @@ void HAL_DSI_MspDeInit(DSI_HandleTypeDef* dsiHandle)
   /* USER CODE END DSI_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_DSI_CLK_DISABLE();
-  
-    /**DSIHOST GPIO Configuration    
-    PJ2     ------> DSIHOST_TE 
+
+    /**DSIHOST GPIO Configuration
+    PJ2     ------> DSIHOST_TE
     */
     HAL_GPIO_DeInit(DSIHOST_TE_GPIO_Port, DSIHOST_TE_Pin);
 
@@ -175,7 +175,7 @@ void HAL_DSI_MspDeInit(DSI_HandleTypeDef* dsiHandle)
 
   /* USER CODE END DSI_MspDeInit 1 */
   }
-} 
+}
 
 /* USER CODE BEGIN 1 */
 

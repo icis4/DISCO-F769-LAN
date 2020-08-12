@@ -44,13 +44,13 @@ void MX_I2C1_Init(void)
   {
     Error_Handler();
   }
-  /** Configure Analogue filter 
+  /** Configure Analogue filter
   */
   if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
   {
     Error_Handler();
   }
-  /** Configure Digital filter 
+  /** Configure Digital filter
   */
   if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
   {
@@ -75,13 +75,13 @@ void MX_I2C4_Init(void)
   {
     Error_Handler();
   }
-  /** Configure Analogue filter 
+  /** Configure Analogue filter
   */
   if (HAL_I2CEx_ConfigAnalogFilter(&hi2c4, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
   {
     Error_Handler();
   }
-  /** Configure Digital filter 
+  /** Configure Digital filter
   */
   if (HAL_I2CEx_ConfigDigitalFilter(&hi2c4, 0) != HAL_OK)
   {
@@ -99,11 +99,11 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
   /* USER CODE BEGIN I2C1_MspInit 0 */
 
   /* USER CODE END I2C1_MspInit 0 */
-  
+
     __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**I2C1 GPIO Configuration    
+    /**I2C1 GPIO Configuration
     PB8     ------> I2C1_SCL
-    PB9     ------> I2C1_SDA 
+    PB9     ------> I2C1_SDA
     */
     GPIO_InitStruct.Pin = ARDUINO_SCL_D15_Pin|ARDUINO_SDA_D14_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -123,12 +123,12 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
   /* USER CODE BEGIN I2C4_MspInit 0 */
 
   /* USER CODE END I2C4_MspInit 0 */
-  
+
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOD_CLK_ENABLE();
-    /**I2C4 GPIO Configuration    
+    /**I2C4 GPIO Configuration
     PB7     ------> I2C4_SDA
-    PD12     ------> I2C4_SCL 
+    PD12     ------> I2C4_SCL
     */
     GPIO_InitStruct.Pin = AUDIO_SDA_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -162,12 +162,14 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
   /* USER CODE END I2C1_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_I2C1_CLK_DISABLE();
-  
-    /**I2C1 GPIO Configuration    
+
+    /**I2C1 GPIO Configuration
     PB8     ------> I2C1_SCL
-    PB9     ------> I2C1_SDA 
+    PB9     ------> I2C1_SDA
     */
-    HAL_GPIO_DeInit(GPIOB, ARDUINO_SCL_D15_Pin|ARDUINO_SDA_D14_Pin);
+    HAL_GPIO_DeInit(ARDUINO_SCL_D15_GPIO_Port, ARDUINO_SCL_D15_Pin);
+
+    HAL_GPIO_DeInit(ARDUINO_SDA_D14_GPIO_Port, ARDUINO_SDA_D14_Pin);
 
   /* USER CODE BEGIN I2C1_MspDeInit 1 */
 
@@ -180,10 +182,10 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
   /* USER CODE END I2C4_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_I2C4_CLK_DISABLE();
-  
-    /**I2C4 GPIO Configuration    
+
+    /**I2C4 GPIO Configuration
     PB7     ------> I2C4_SDA
-    PD12     ------> I2C4_SCL 
+    PD12     ------> I2C4_SCL
     */
     HAL_GPIO_DeInit(AUDIO_SDA_GPIO_Port, AUDIO_SDA_Pin);
 
@@ -193,7 +195,7 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
 
   /* USER CODE END I2C4_MspDeInit 1 */
   }
-} 
+}
 
 /* USER CODE BEGIN 1 */
 

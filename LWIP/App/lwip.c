@@ -16,7 +16,7 @@
   *
   ******************************************************************************
   */
-  
+
 /* Includes ------------------------------------------------------------------*/
 #include "lwip.h"
 #include "lwip/init.h"
@@ -68,7 +68,7 @@ void MX_LWIP_Init(void)
   GATEWAY_ADDRESS[1] = 168;
   GATEWAY_ADDRESS[2] = 5;
   GATEWAY_ADDRESS[3] = 100;
-  
+
   /* Initilialize the LwIP stack with RTOS */
   tcpip_init( NULL, NULL );
 
@@ -120,7 +120,7 @@ sio_fd_t sio_open(u8_t devnum)
 /* USER CODE BEGIN 7 */
   sd = 0; // dummy code
 /* USER CODE END 7 */
-	
+
   return sd;
 }
 
@@ -155,7 +155,7 @@ u32_t sio_read(sio_fd_t fd, u8_t *data, u32_t len)
 
 /* USER CODE BEGIN 9 */
   recved_bytes = 0; // dummy code
-/* USER CODE END 9 */	
+/* USER CODE END 9 */
   return recved_bytes;
 }
 
@@ -174,7 +174,7 @@ u32_t sio_tryread(sio_fd_t fd, u8_t *data, u32_t len)
 
 /* USER CODE BEGIN 10 */
   recved_bytes = 0; // dummy code
-/* USER CODE END 10 */	
+/* USER CODE END 10 */
   return recved_bytes;
 }
 #endif /* MDK ARM Compiler */

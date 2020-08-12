@@ -59,10 +59,10 @@ void HAL_SPDIFRX_MspInit(SPDIFRX_HandleTypeDef* spdifrxHandle)
   /* USER CODE END SPDIFRX_MspInit 0 */
     /* SPDIFRX clock enable */
     __HAL_RCC_SPDIFRX_CLK_ENABLE();
-  
+
     __HAL_RCC_GPIOG_CLK_ENABLE();
-    /**SPDIFRX GPIO Configuration    
-    PG12     ------> SPDIFRX_IN1 
+    /**SPDIFRX GPIO Configuration
+    PG12     ------> SPDIFRX_IN1
     */
     GPIO_InitStruct.Pin = SPDIF_RX_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -87,9 +87,9 @@ void HAL_SPDIFRX_MspDeInit(SPDIFRX_HandleTypeDef* spdifrxHandle)
   /* USER CODE END SPDIFRX_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_SPDIFRX_CLK_DISABLE();
-  
-    /**SPDIFRX GPIO Configuration    
-    PG12     ------> SPDIFRX_IN1 
+
+    /**SPDIFRX GPIO Configuration
+    PG12     ------> SPDIFRX_IN1
     */
     HAL_GPIO_DeInit(SPDIF_RX_GPIO_Port, SPDIF_RX_Pin);
 
@@ -97,7 +97,7 @@ void HAL_SPDIFRX_MspDeInit(SPDIFRX_HandleTypeDef* spdifrxHandle)
 
   /* USER CODE END SPDIFRX_MspDeInit 1 */
   }
-} 
+}
 
 /* USER CODE BEGIN 1 */
 

@@ -60,17 +60,17 @@ void HAL_MMC_MspInit(MMC_HandleTypeDef* mmcHandle)
   /* USER CODE END SDMMC2_MspInit 0 */
     /* SDMMC2 clock enable */
     __HAL_RCC_SDMMC2_CLK_ENABLE();
-  
+
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOD_CLK_ENABLE();
     __HAL_RCC_GPIOG_CLK_ENABLE();
-    /**SDMMC2 GPIO Configuration    
+    /**SDMMC2 GPIO Configuration
     PB4     ------> SDMMC2_D3
     PB3     ------> SDMMC2_D2
     PD7     ------> SDMMC2_CMD
     PD6     ------> SDMMC2_CK
     PG10     ------> SDMMC2_D1
-    PG9     ------> SDMMC2_D0 
+    PG9     ------> SDMMC2_D0
     */
     GPIO_InitStruct.Pin = uSD_D3_Pin|uSD_D2_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -109,14 +109,14 @@ void HAL_MMC_MspDeInit(MMC_HandleTypeDef* mmcHandle)
   /* USER CODE END SDMMC2_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_SDMMC2_CLK_DISABLE();
-  
-    /**SDMMC2 GPIO Configuration    
+
+    /**SDMMC2 GPIO Configuration
     PB4     ------> SDMMC2_D3
     PB3     ------> SDMMC2_D2
     PD7     ------> SDMMC2_CMD
     PD6     ------> SDMMC2_CK
     PG10     ------> SDMMC2_D1
-    PG9     ------> SDMMC2_D0 
+    PG9     ------> SDMMC2_D0
     */
     HAL_GPIO_DeInit(GPIOB, uSD_D3_Pin|uSD_D2_Pin);
 
@@ -128,7 +128,7 @@ void HAL_MMC_MspDeInit(MMC_HandleTypeDef* mmcHandle)
 
   /* USER CODE END SDMMC2_MspDeInit 1 */
   }
-} 
+}
 
 /* USER CODE BEGIN 1 */
 

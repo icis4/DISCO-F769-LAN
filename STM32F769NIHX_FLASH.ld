@@ -39,10 +39,11 @@ MEMORY
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 512K
   FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 2048K
 	/* Ethernet Buffers */
-	Memory_B1(xrw)   : ORIGIN = 0x20010000, LENGTH = 0x80
-	Memory_B2(xrw)   : ORIGIN = 0x20010080, LENGTH = 0x80
-	Memory_B3(xrw)   : ORIGIN = 0x2004C000, LENGTH = 0x17d0 
-	Memory_B4(xrw)   : ORIGIN = 0x2004D7D0, LENGTH = 0x17d0 
+	Memory_B1(xrw)   : ORIGIN = 0x2007C000, LENGTH = 0x80
+	Memory_B2(xrw)   : ORIGIN = 0x2007C080, LENGTH = 0x80
+	Memory_B3(xrw)   : ORIGIN = 0x2007C100, LENGTH = 0x17d0 
+	Memory_B4(xrw)   : ORIGIN = 0x2007D8D0, LENGTH = 0x17d0
+	ITCMRAM (xrw)      : ORIGIN = 0x00000000, LENGTH = 16K
 }
 
 /* Sections */
@@ -178,8 +179,8 @@ SECTIONS
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
   
-  .RxDecripSection(NOLOAD) : { *(.RxDescripSection) } >Memory_B1
-  .TxDescripSection(NOLOAD) : { *(.TxDescripSection) } >Memory_B2
-  .RxarraySection(NOLOAD) : { *(.RxBUF) } >Memory_B3
-  .TxarraySection(NOLOAD) : { *(.TxBUF) } >Memory_B4
+  .RxDescripSection (NOLOAD) : { *(.RxDescripSection) } >Memory_B1
+  .TxDescripSection (NOLOAD) : { *(.TxDescripSection) } >Memory_B2
+  .RxBUF (NOLOAD) : { *(.RxBUF) } >Memory_B3
+  .TxBUF (NOLOAD) : { *(.TxBUF) } >Memory_B4
 }

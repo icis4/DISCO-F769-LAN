@@ -60,10 +60,10 @@ void HAL_CEC_MspInit(CEC_HandleTypeDef* cecHandle)
   /* USER CODE END CEC_MspInit 0 */
     /* CEC clock enable */
     __HAL_RCC_CEC_CLK_ENABLE();
-  
+
     __HAL_RCC_GPIOA_CLK_ENABLE();
-    /**HDMI_CEC GPIO Configuration    
-    PA15     ------> CEC 
+    /**HDMI_CEC GPIO Configuration
+    PA15     ------> CEC
     */
     GPIO_InitStruct.Pin = CEC_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
@@ -73,7 +73,7 @@ void HAL_CEC_MspInit(CEC_HandleTypeDef* cecHandle)
     HAL_GPIO_Init(CEC_GPIO_Port, &GPIO_InitStruct);
 
     /* CEC interrupt Init */
-    HAL_NVIC_SetPriority(CEC_IRQn, 5, 0);
+    HAL_NVIC_SetPriority(CEC_IRQn, 7, 0);
     HAL_NVIC_EnableIRQ(CEC_IRQn);
   /* USER CODE BEGIN CEC_MspInit 1 */
 
@@ -91,9 +91,9 @@ void HAL_CEC_MspDeInit(CEC_HandleTypeDef* cecHandle)
   /* USER CODE END CEC_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_CEC_CLK_DISABLE();
-  
-    /**HDMI_CEC GPIO Configuration    
-    PA15     ------> CEC 
+
+    /**HDMI_CEC GPIO Configuration
+    PA15     ------> CEC
     */
     HAL_GPIO_DeInit(CEC_GPIO_Port, CEC_Pin);
 
@@ -103,7 +103,7 @@ void HAL_CEC_MspDeInit(CEC_HandleTypeDef* cecHandle)
 
   /* USER CODE END CEC_MspDeInit 1 */
   }
-} 
+}
 
 /* USER CODE BEGIN 1 */
 

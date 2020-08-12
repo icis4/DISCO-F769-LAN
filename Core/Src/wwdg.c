@@ -57,7 +57,6 @@ void HAL_WWDG_MspInit(WWDG_HandleTypeDef* wwdgHandle)
   /* USER CODE END WWDG_MspInit 1 */
   }
 }
- 
 
 /* USER CODE BEGIN 1 */
 
